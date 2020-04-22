@@ -16,7 +16,7 @@ import { StoreProvider } from "easy-peasy";
 import store from "./store";
 
 const httpLink = createHttpLink({
-	uri: "http://192.168.1.164:4000/graphql",
+	uri: "https://movie-affiliates.herokuapp.com/graphql",
 	credentials: "include",
 });
 
@@ -54,7 +54,7 @@ const client = new ApolloClient({
 				}
 			},
 			fetchAccessToken: () => {
-				return fetch("http://192.168.1.164:4000/refresh_token", {
+				return fetch("https://movie-affiliates.herokuapp.com/refresh_token", {
 					method: "POST",
 					credentials: "include",
 				});

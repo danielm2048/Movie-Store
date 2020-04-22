@@ -44,7 +44,7 @@ const server = new ApolloServer({
 const app = express();
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: "https://movie-affiliates.herokuapp.com/",
 		credentials: true,
 	})
 );
@@ -94,8 +94,6 @@ const connection = mongoose.connection;
 connection.once("open", () => {
 	console.log("MongoDB database connection established successfully");
 	app.listen(port, () => {
-		console.log(
-			`Now browse to http://192.168.1.164:${port}` + server.graphqlPath
-		);
+		console.log(`Now browse to port ${port}` + server.graphqlPath);
 	});
 });
