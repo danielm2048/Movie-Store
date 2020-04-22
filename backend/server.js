@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -77,6 +78,12 @@ app.post("/refresh_token", cookieParser(), async (req, res) => {
 	sendRefreshToken(res, createRefreshToken(user));
 
 	return res.send({ ok: true, accessToken: createAccessToken(user) });
+});
+
+app.use(express.static("public"));
+
+app.get("*", (_, res) => {
+	res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
 server.applyMiddleware({ app, cors: false });

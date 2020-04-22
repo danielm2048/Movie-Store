@@ -16,7 +16,7 @@ import { StoreProvider } from "easy-peasy";
 import store from "./store";
 
 const httpLink = createHttpLink({
-	uri: "https://movie-affiliates.herokuapp.com/graphql",
+	uri: "/graphql",
 	credentials: "include",
 });
 
