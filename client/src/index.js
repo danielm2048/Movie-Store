@@ -22,7 +22,6 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
 	const accessToken = store.getState().user.accessToken;
-	console.log(accessToken);
 	return {
 		headers: {
 			...headers,

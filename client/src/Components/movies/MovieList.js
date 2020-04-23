@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, List, Item } from "../../style/styledList";
 import Movie from "./Movie";
 import Pagination from "../layout/Pagination";
@@ -14,6 +14,10 @@ const MovieList = () => {
 	const { data, loading, error } = useQuery(GET_MOVIES);
 
 	const searchInput = useStoreState((state) => state.search.input);
+
+	useEffect(() => {
+		setCurrentPage(1);
+	}, [searchInput]);
 
 	if (loading)
 		return (
@@ -42,6 +46,7 @@ const MovieList = () => {
 
 	const onSelectChange = (e) => {
 		setGenre(e.target.value);
+		setCurrentPage(1);
 	};
 
 	const moviesByGenre = data.getMovies.filter(
