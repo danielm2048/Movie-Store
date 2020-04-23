@@ -80,7 +80,7 @@ app.post("/refresh_token", cookieParser(), async (req, res) => {
 	return res.send({ ok: true, accessToken: createAccessToken(user) });
 });
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 app.get("*", (_, res) => {
 	res.sendFile(path.resolve(__dirname, "public", "index.html"));
