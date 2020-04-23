@@ -67,7 +67,7 @@ export const StyledFooter = styled.footer`
 	bottom: 0;
 	right: 0;
 	width: 100%;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Dancing Script", cursive;
 	background-color: #48505e;
 	color: white;
 	text-align: center;
