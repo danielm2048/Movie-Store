@@ -102,31 +102,47 @@ const MoviePage = ({ match }) => {
 						>{`Hurry up! there's only ${data.getMovie.availableIn[avail].stock} copies left!`}</MovieWarning>
 					</MoviePageColumn>
 					<MoviePageColumn>
-						<MoviePageTitle>{data.getMovie.name}</MoviePageTitle>
+						<MoviePageTitle>
+							<b>{data.getMovie.name}</b>
+						</MoviePageTitle>
 
-						<label htmlFor="dir">Director</label>
+						<label htmlFor="dir">
+							<b>Director</b>
+						</label>
 						<MovieDetail id="dir">{data.getMovie.director}</MovieDetail>
 
-						<label htmlFor="cast">Cast</label>
+						<label htmlFor="cast">
+							<b>Cast</b>
+						</label>
 						<MovieDetail id="cast">
 							{data.getMovie.cast.map((c, i) => {
 								return <p key={i}>{c}</p>;
 							})}
 						</MovieDetail>
 
-						<label htmlFor="genre">Genre</label>
+						<label htmlFor="genre">
+							<b>Genre</b>
+						</label>
 						<MovieDetail id="genre">{data.getMovie.genre}</MovieDetail>
 
-						<label htmlFor="date">Release Year</label>
+						<label htmlFor="date">
+							<b>Release Year</b>
+						</label>
 						<MovieDetail id="date">{data.getMovie.releaseDate}</MovieDetail>
 
-						<label htmlFor="time">Runtime</label>
+						<label htmlFor="time">
+							<b>Runtime</b>
+						</label>
 						<MovieDetail id="time">{data.getMovie.runtime}</MovieDetail>
 
-						<label htmlFor="lang">Languages</label>
+						<label htmlFor="lang">
+							<b>Languages</b>
+						</label>
 						<MovieDetail id="lang">{data.getMovie.language}</MovieDetail>
 
-						<label htmlFor="desc">Description</label>
+						<label htmlFor="desc">
+							<b>Description</b>
+						</label>
 						<MovieDetail id="desc">{data.getMovie.description}</MovieDetail>
 					</MoviePageColumn>
 				</MoviePageRow>

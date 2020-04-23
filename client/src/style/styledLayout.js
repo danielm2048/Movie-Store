@@ -25,12 +25,12 @@ export const Canvas = styled.div`
 
 export const Content = styled.div`
 	padding-bottom: 3.5rem;
-	font-family: "Comic Neue", cursive;
+	font-family: "Raleway", sans-serif;
 `;
 
 export const About = styled.p`
 	font-size: 26px;
-	font-weight: bold;
+	font-weight: 600;
 	white-space: pre-line;
 	margin-left: 100px;
 	@media screen and (max-width: 768px) {

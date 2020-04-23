@@ -10,7 +10,7 @@ import { Select, Option } from "../../style/styledCard";
 const MovieList = () => {
 	const [genre, setGenre] = useState("All");
 	const [currentPage, setCurrentPage] = useState(1);
-	const [moviesPerPage] = useState(3);
+	const [moviesPerPage] = useState(6);
 	const { data, loading, error } = useQuery(GET_MOVIES);
 
 	const searchInput = useStoreState((state) => state.search.input);
@@ -37,16 +37,21 @@ const MovieList = () => {
 		"Horror",
 		"Romance",
 		"Thriller",
+		"Science Fiction",
 	];
 
 	const onSelectChange = (e) => {
 		setGenre(e.target.value);
 	};
 
+	const moviesByGenre = data.getMovies.filter(
+		(movie) => movie.genre === genre || genre === "All"
+	);
+
 	const moviesToRender =
 		searchInput === ""
-			? data.getMovies
-			: data.getMovies.filter((movie) =>
+			? moviesByGenre
+			: moviesByGenre.filter((movie) =>
 					movie.name.toLowerCase().includes(searchInput.toLowerCase())
 			  );
 
@@ -74,13 +79,11 @@ const MovieList = () => {
 				))}
 			</Select>
 			<List>
-				{currentMovies.map((movie) =>
-					movie.genre === genre || genre === "All" ? (
-						<Item key={movie.id}>
-							<Movie data={movie} />
-						</Item>
-					) : null
-				)}
+				{currentMovies.map((movie) => (
+					<Item key={movie.id}>
+						<Movie data={movie} />
+					</Item>
+				))}
 			</List>
 			<Pagination
 				moviesPerPage={moviesPerPage}

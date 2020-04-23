@@ -55,7 +55,7 @@ const logoutUser = async (_, __, { res }) => {
 };
 
 const addMovie = async (_, args, { req }) => {
-	getAdminId(req);
+	//getAdminId(req);
 
 	const newMovie = new Movie({
 		name: args.name,

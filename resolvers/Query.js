@@ -19,7 +19,7 @@ const getMovie = (_, args) => {
 	return Movie.findOne({ _id: args.movieId });
 };
 
-const getMovies = () => Movie.find();
+const getMovies = () => Movie.find().sort("name");
 
 module.exports = {
 	getUser,
