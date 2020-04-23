@@ -4,7 +4,7 @@ import { Code, Heart } from "@styled-icons/fa-solid/";
 
 const Footer = () => (
 	<StyledFooter>
-		<Code size="26" /> WITH <Heart size="26" /> BY DANIEL MIMOUN
+		<Code size="18" /> with <Heart size="18" /> by Daniel Mimoun
 	</StyledFooter>
 );
 
