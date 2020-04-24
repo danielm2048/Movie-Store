@@ -80,11 +80,19 @@ app.post("/refresh_token", cookieParser(), async (req, res) => {
 	return res.send({ ok: true, accessToken: createAccessToken(user) });
 });
 
-app.use(express.static("public"));
+if (process.env.NODE_ENV === "production") {
+	app.use((req, res, next) => {
+		if (req.header("x-forwarded-proto") !== "https")
+			res.redirect(`https://${req.header("host")}${req.url}`);
+		else next();
+	});
 
-app.get("*", (_, res) => {
-	res.sendFile(path.resolve(__dirname, "public", "index.html"));
-});
+	app.use(express.static("public"));
+
+	app.get("*", (_, res) => {
+		res.sendFile(path.resolve(__dirname, "public", "index.html"));
+	});
+}
 
 server.applyMiddleware({ app, cors: false });
 
