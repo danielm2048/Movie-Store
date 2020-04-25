@@ -67,7 +67,12 @@ const NavBar = () => {
 				<StyledNavLink to="/movies">Catalogue</StyledNavLink>
 			</NavItem>
 			<NavItem>
-				<SearchForm autoComplete="off">
+				<SearchForm
+					autoComplete="off"
+					onSubmit={(e) => {
+						e.preventDefault();
+					}}
+				>
 					<AnimatedSearch
 						type="text"
 						name="search"
