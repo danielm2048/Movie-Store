@@ -7,7 +7,7 @@ const Pagination = ({ totalMovies, moviesPerPage, paginate, curr }) => {
 	const maxPages = Math.ceil(totalMovies / moviesPerPage);
 
 	if (maxPages === 0) {
-		return <h1>No movies to show!</h1>;
+		return <h1 style={{ textAlign: "center" }}>No movies to show!</h1>;
 	}
 
 	for (let i = 1; i <= maxPages; i++) {
