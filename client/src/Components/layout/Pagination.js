@@ -6,6 +6,10 @@ const Pagination = ({ totalMovies, moviesPerPage, paginate, curr }) => {
 
 	const maxPages = Math.ceil(totalMovies / moviesPerPage);
 
+	if (maxPages === 0) {
+		return <h1>No movies to show!</h1>;
+	}
+
 	for (let i = 1; i <= maxPages; i++) {
 		pageNumbers.push(i);
 	}
