@@ -30,7 +30,7 @@ const NavBar = () => {
 			<Logout />
 			<NavItem right>
 				<StyledNavLink to="/wishlist">
-					<List size="18" title="My Wishlist" />
+					<List size="16" title="My Wishlist" />
 				</StyledNavLink>
 			</NavItem>
 		</React.Fragment>
@@ -54,8 +54,8 @@ const NavBar = () => {
 	return (
 		<Nav>
 			<NavItem>
-				<StyledNavLink to="/" style={{ padding: "25px 28px" }}>
-					<img src={logo} alt="logo" style={{ height: 62, width: 250 }}></img>
+				<StyledNavLink to="/" style={{ padding: "18px 25px" }}>
+					<img src={logo} alt="logo" style={{ height: 61, width: 240 }}></img>
 				</StyledNavLink>
 			</NavItem>
 			{data && data.getUser && !loading

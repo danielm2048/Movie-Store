@@ -32,7 +32,7 @@ export const About = styled.p`
 	font-size: 26px;
 	font-weight: 600;
 	white-space: pre-line;
-	margin-left: 100px;
+	margin-left: 300px;
 	@media screen and (max-width: 768px) {
 		margin-left: 10px;
 	}

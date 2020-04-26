@@ -22,7 +22,7 @@ const Logout = () => {
 				}}
 				to="/"
 			>
-				<SignOutAlt size="18" title="Logout" />
+				<SignOutAlt size="16" title="Logout" />
 			</StyledNavLink>
 		</NavItem>
 	);

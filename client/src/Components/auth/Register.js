@@ -59,7 +59,7 @@ const Register = () => {
 		<>
 			<NavItem right>
 				<StyledNavLink onClick={() => setModal(true)} to="#">
-					<UserPlus size="18" title="Register" />
+					<UserPlus size="16" title="Register" />
 				</StyledNavLink>
 			</NavItem>
 			<Modal modal={modal}>

@@ -56,7 +56,7 @@ const Login = () => {
 		<>
 			<NavItem right>
 				<StyledNavLink onClick={() => setModal(true)} to="#">
-					<SignInAlt size="18" title="Login" />
+					<SignInAlt size="16" title="Login" />
 				</StyledNavLink>
 			</NavItem>
 			<Modal modal={modal}>

@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 
 export const Nav = styled.ul`
 	list-style-type: none;
-	margin: 0;
+	max-width: 1400px;
+	margin: 0 auto;
 	padding: 0;
 	overflow: hidden;
 	/* background-color: #f0f2f3; */
@@ -22,21 +23,21 @@ export const StyledNavLink = styled(NavLink)`
 	font-family: "Roboto", sans-serif;
 	/* font-weight: 700; */
 	text-align: center;
-	padding: 45px 28px;
-	font-size: 23px;
+	padding: 40px 26px;
+	font-size: 18px;
 	text-decoration: none;
 	background-color: ${(props) => (props.active ? "#777" : "none")};
 	&:hover {
 		background-color: ${(props) => (!props.active ? "#999" : "none")};
 	}
 	@media screen and (max-width: 768px) {
-		padding: 25px 28px;
+		padding: 25px 26px;
 	}
 `;
 
 export const SearchForm = styled.form`
 	display: block;
-	padding: 35px 28px;
+	padding: 28px 26px;
 	margin: auto;
 	&::after {
 		content: "";
@@ -44,7 +45,7 @@ export const SearchForm = styled.form`
 		display: table;
 	}
 	@media screen and (max-width: 768px) {
-		padding: 15px 28px;
+		padding: 15px 26px;
 	}
 `;
 
@@ -53,7 +54,7 @@ export const AnimatedSearch = styled.input`
 	box-sizing: border-box;
 	border: 2px solid #ccc;
 	border-radius: 4px;
-	font-size: 16px;
+	font-size: 15px;
 	background-color: white;
 	background-image: url("/images/search.png");
 	background-position: 10px 10px;
