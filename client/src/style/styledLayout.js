@@ -41,15 +41,25 @@ export const About = styled.p`
 export const HeaderDiv = styled.div`
 	position: relative;
 	padding-top: 60px;
-	background-image: url("/images/popcorn.png");
-	background-size: 100% inherit;
+	background-image: url(${(props) => props.url});
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 	min-height: 350px;
+	color: white;
 	font-family: "Gotu", sans-serif;
+	transition: background-image 0.2s ease;
+	@media screen and (max-width: 768px) {
+		min-height: 25px;
+	}
 `;
 
 export const HeaderTitle = styled.h1`
 	text-align: center;
-	padding: 2rem;
+	padding: 2.5rem;
+	@media screen and (max-width: 768px) {
+		padding: 0 0 50px 0;
+		font-size: 24px;
+	}
 `;
 
 export const HeaderCredit = styled.div`

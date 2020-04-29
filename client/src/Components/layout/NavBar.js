@@ -6,6 +6,7 @@ import {
 	StyledNavLink,
 	SearchForm,
 	AnimatedSearch,
+	NavLinkHover,
 } from "../../style/styledNavbar";
 import logo from "../../style/Logo.png";
 import Login from "../auth/Login";
@@ -30,7 +31,9 @@ const NavBar = () => {
 			<Logout />
 			<NavItem right>
 				<StyledNavLink to="/wishlist">
-					<List size="16" title="My Wishlist" />
+					<NavLinkHover>
+						<List size="16" title="My Wishlist" />
+					</NavLinkHover>
 				</StyledNavLink>
 			</NavItem>
 		</React.Fragment>
@@ -39,7 +42,9 @@ const NavBar = () => {
 	const adminLinks = (
 		<React.Fragment>
 			<NavItem>
-				<StyledNavLink to="/admin-section">Admin Section</StyledNavLink>
+				<StyledNavLink to="/admin-section">
+					<NavLinkHover>Admin Section</NavLinkHover>
+				</StyledNavLink>
 			</NavItem>
 		</React.Fragment>
 	);
@@ -64,7 +69,9 @@ const NavBar = () => {
 					: null
 				: null}
 			<NavItem>
-				<StyledNavLink to="/movies">Catalogue</StyledNavLink>
+				<StyledNavLink to="/movies">
+					<NavLinkHover>Catalogue</NavLinkHover>
+				</StyledNavLink>
 			</NavItem>
 			<NavItem>
 				<SearchForm

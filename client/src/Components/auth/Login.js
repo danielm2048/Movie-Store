@@ -12,7 +12,7 @@ import {
 	Close,
 	ModalError,
 } from "../../style/styledModal";
-import { NavItem, StyledNavLink } from "../../style/styledNavbar";
+import { NavItem, StyledNavLink, NavLinkHover } from "../../style/styledNavbar";
 import { SignInAlt } from "@styled-icons/fa-solid";
 import { useStoreActions } from "easy-peasy";
 
@@ -56,7 +56,9 @@ const Login = () => {
 		<>
 			<NavItem right>
 				<StyledNavLink onClick={() => setModal(true)} to="#">
-					<SignInAlt size="16" title="Login" />
+					<NavLinkHover>
+						<SignInAlt size="16" title="Login" />
+					</NavLinkHover>
 				</StyledNavLink>
 			</NavItem>
 			<Modal modal={modal}>

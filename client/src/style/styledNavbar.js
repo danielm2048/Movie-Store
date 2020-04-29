@@ -23,15 +23,25 @@ export const StyledNavLink = styled(NavLink)`
 	font-family: "Roboto", sans-serif;
 	/* font-weight: 700; */
 	text-align: center;
-	padding: 40px 26px;
+	padding: 25px 5px;
 	font-size: 18px;
 	text-decoration: none;
-	background-color: ${(props) => (props.active ? "#777" : "none")};
+	/* background-color: ${(props) => (props.active ? "#777" : "none")};
 	&:hover {
 		background-color: ${(props) => (!props.active ? "#999" : "none")};
-	}
+	} */
 	@media screen and (max-width: 768px) {
 		padding: 25px 26px;
+	}
+`;
+
+export const NavLinkHover = styled.div`
+	padding: 15px;
+	backface-visibility: hidden;
+	border-radius: 10px;
+	transition: background-color 0.3s cubic-bezier(0.28, 0.84, 0.42, 1);
+	&:hover {
+		background-color: #999;
 	}
 `;
 

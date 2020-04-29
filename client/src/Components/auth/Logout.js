@@ -1,5 +1,5 @@
 import React from "react";
-import { NavItem, StyledNavLink } from "../../style/styledNavbar";
+import { NavItem, StyledNavLink, NavLinkHover } from "../../style/styledNavbar";
 import { SignOutAlt } from "@styled-icons/fa-solid";
 import { useMutation } from "@apollo/react-hooks";
 import { LOGOUT } from "../../graphql/gqlDocs";
@@ -22,7 +22,9 @@ const Logout = () => {
 				}}
 				to="/"
 			>
-				<SignOutAlt size="16" title="Logout" />
+				<NavLinkHover>
+					<SignOutAlt size="16" title="Logout" />
+				</NavLinkHover>
 			</StyledNavLink>
 		</NavItem>
 	);

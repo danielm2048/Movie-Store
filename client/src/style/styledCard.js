@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Select = styled.select``;
+export const Select = styled.select`
+	font-family: "Raleway", sans-serif;
+`;
 
 export const Option = styled.option``;
 

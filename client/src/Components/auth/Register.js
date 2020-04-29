@@ -12,7 +12,7 @@ import {
 	Close,
 	ModalError,
 } from "../../style/styledModal";
-import { NavItem, StyledNavLink } from "../../style/styledNavbar";
+import { NavItem, StyledNavLink, NavLinkHover } from "../../style/styledNavbar";
 import { UserPlus } from "@styled-icons/fa-solid";
 import { useStoreActions } from "easy-peasy";
 
@@ -59,7 +59,9 @@ const Register = () => {
 		<>
 			<NavItem right>
 				<StyledNavLink onClick={() => setModal(true)} to="#">
-					<UserPlus size="16" title="Register" />
+					<NavLinkHover>
+						<UserPlus size="16" title="Register" />
+					</NavLinkHover>
 				</StyledNavLink>
 			</NavItem>
 			<Modal modal={modal}>

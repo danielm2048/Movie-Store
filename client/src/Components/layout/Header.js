@@ -4,44 +4,51 @@ import { GET_USER } from "../../graphql/gqlDocs";
 import { useQuery } from "@apollo/react-hooks";
 import { withRouter } from "react-router-dom";
 
+const homeHeader = "/images/home.jpg";
+const catalogueHeader = "/images/red-popcorn-2.png";
+const wishlistHeader = "/images/rickmorty.jpg";
+const checkoutHeader = "/images/checkout.jpg";
+
 const Header = ({ history }) => {
 	const { data, loading } = useQuery(GET_USER);
 
 	let title = "";
+	let url = "";
 	switch (history.location.pathname) {
 		case "/":
 			title =
 				data && data.getUser && !loading
 					? `WELCOME ${data.getUser.username}!`
 					: "Movie Affiliates";
+			url = homeHeader;
 			break;
 		case "/wishlist":
 			title = "Wishlist";
+			url = wishlistHeader;
 			break;
 		case "/checkout":
 			title = "Checkout";
+			url = checkoutHeader;
 			break;
 		case "/admin-section":
 			title = "Admin Section";
+			url = homeHeader;
 			break;
 		default:
 			title = "Catalogue";
+			url = catalogueHeader;
 			break;
 	}
 
 	return (
-		<HeaderDiv>
+		<HeaderDiv url={url}>
 			<HeaderTitle>{title}</HeaderTitle>
-			<HeaderCredit>
-				By the amazing{" "}
-				<a href="https://pixabay.com/users/asi24-2397893/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1614707">
-					asi24
-				</a>{" "}
-				from{" "}
-				<a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1614707">
-					Pixabay
-				</a>
-			</HeaderCredit>
+			{url === wishlistHeader ? (
+				<HeaderCredit>
+					art by
+					<a href="https://www.artstation.com/senhordotempo">Wilian Silva</a>
+				</HeaderCredit>
+			) : null}
 		</HeaderDiv>
 	);
 };
