@@ -77,11 +77,23 @@ const userModel = {
 	}),
 };
 
+const toastModel = {
+	visible: false,
+	message: "",
+	setVisible: action((state, payload) => {
+		state.visible = payload;
+	}),
+	setMessage: action((state, payload) => {
+		state.message = payload;
+	}),
+};
+
 const storeModel = {
 	cart: cartModel,
 	layout: layoutModel,
 	search: searchModel,
 	user: userModel,
+	toast: toastModel,
 };
 
 const store = createStore(storeModel);

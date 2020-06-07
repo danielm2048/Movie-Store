@@ -31,17 +31,17 @@ const CartItem = ({ id, name, format, price, quantity }) => {
 			<div style={{ display: "flex", flexDirection: "column" }}>
 				<SideLink to={`/movie/${id}`}>{name}</SideLink>
 				<span style={{ marginLeft: "5px", fontSize: "12px" }}>{format}</span>
-				<SideQuantity
-					type="number"
-					id="quantity"
-					name="quantity"
-					min="1"
-					max="9"
-					onKeyDown={(e) => e.preventDefault()}
-					value={quantity}
-					onChange={onQuantityChange}
-				/>
 			</div>
+			<SideQuantity
+				type="number"
+				id="quantity"
+				name="quantity"
+				min="1"
+				max="9"
+				onKeyDown={(e) => e.preventDefault()}
+				value={quantity}
+				onChange={onQuantityChange}
+			/>
 			<Remove onClick={() => remove({ movieId: id, format })}>&times;</Remove>
 			<SidePrice>{price * quantity}</SidePrice>
 		</SideItem>

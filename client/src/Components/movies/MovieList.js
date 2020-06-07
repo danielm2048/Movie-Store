@@ -57,7 +57,10 @@ const MovieList = () => {
 		searchInput === ""
 			? moviesByGenre
 			: moviesByGenre.filter((movie) =>
-					movie.name.toLowerCase().includes(searchInput.toLowerCase())
+					movie.name
+						.toLowerCase()
+						.replace(":", "")
+						.includes(searchInput.toLowerCase().replace(":", ""))
 			  );
 
 	const indexOfLastMovie = currentPage * moviesPerPage;
@@ -69,6 +72,7 @@ const MovieList = () => {
 
 	const paginate = (pageNumber) => {
 		setCurrentPage(pageNumber);
+		window.scrollTo(0, 0);
 	};
 
 	return (

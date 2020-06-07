@@ -1,26 +1,27 @@
 import React from "react";
 import { HeaderDiv, HeaderTitle, HeaderCredit } from "../../style/styledLayout";
-import { GET_USER } from "../../graphql/gqlDocs";
-import { useQuery } from "@apollo/react-hooks";
 import { withRouter } from "react-router-dom";
 
-const homeHeader = "/images/home.jpg";
-const catalogueHeader = "/images/red-popcorn-2.png";
-const wishlistHeader = "/images/rickmorty.jpg";
-const checkoutHeader = "/images/checkout.jpg";
+import aboutHeader from "../../style/images/home.jpg";
+import catalogueHeader from "../../style/images/red-popcorn-2.png";
+import wishlistHeader from "../../style/images/rickmorty.jpg";
+import checkoutHeader from "../../style/images/checkout.jpg";
 
 const Header = ({ history }) => {
-	const { data, loading } = useQuery(GET_USER);
-
 	let title = "";
 	let url = "";
 	switch (history.location.pathname) {
 		case "/":
-			title =
-				data && data.getUser && !loading
-					? `WELCOME ${data.getUser.username}!`
-					: "Movie Affiliates";
-			url = homeHeader;
+			title = "";
+			url = "";
+			break;
+		case "/about":
+			title = "About";
+			url = aboutHeader;
+			break;
+		case "/contact":
+			title = "Contact";
+			url = aboutHeader;
 			break;
 		case "/wishlist":
 			title = "Wishlist";
@@ -32,7 +33,7 @@ const Header = ({ history }) => {
 			break;
 		case "/admin-section":
 			title = "Admin Section";
-			url = homeHeader;
+			url = aboutHeader;
 			break;
 		default:
 			title = "Catalogue";
@@ -41,7 +42,7 @@ const Header = ({ history }) => {
 	}
 
 	return (
-		<HeaderDiv url={url}>
+		<HeaderDiv url={url} vis={url ? true : false}>
 			<HeaderTitle>{title}</HeaderTitle>
 			{url === wishlistHeader ? (
 				<HeaderCredit>

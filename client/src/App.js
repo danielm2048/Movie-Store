@@ -20,7 +20,16 @@ const App = () => {
 	}, [setAccessToken]);
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return (
+			<div className="lds-ellipsis-container">
+				<div className="lds-ellipsis">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		);
 	}
 
 	return <Routes />;

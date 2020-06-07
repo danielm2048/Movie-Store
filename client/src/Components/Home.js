@@ -1,19 +1,66 @@
 import React from "react";
-import { About } from "../style/styledLayout";
 
-const Home = () => <About>{about}</About>;
+import fam from "../style/images/fam.png";
+import friends from "../style/images/friends.png";
+import {
+	HomeHeader,
+	ShopButtonContainer,
+	ShopButton,
+	Mouse,
+	HomeTitle,
+	InfoBar,
+	HomeText,
+	HomeImg,
+	HomeDiv,
+	HeaderCredit,
+} from "../style/styledLayout";
+
+const Home = ({ history }) => {
+	return (
+		<div
+			style={{
+				fontFamily: `"Ubuntu", sans-serif`,
+			}}
+		>
+			<HomeHeader>
+				<ShopButtonContainer>
+					<HomeTitle>WELCOME TO{"\n"}MOVIE AFFILIATES</HomeTitle>
+					<ShopButton onClick={() => history.replace("/movies")}>
+						SHOP NOW
+					</ShopButton>
+					<HeaderCredit>
+						<a href="https://www.freepik.com/free-photos-vectors/background">
+							photo created by freepik
+						</a>
+					</HeaderCredit>
+					<HeaderCredit>
+						<a href="https://www.freepik.com/free-photos-vectors/design">
+							Design vector created by pch.vector
+						</a>
+					</HeaderCredit>
+				</ShopButtonContainer>
+				<Mouse />
+			</HomeHeader>
+			<HomeDiv>
+				<HomeText marginLeftSize="5em">
+					BUY SOME MOVIES{"\n"}AND ENJOY THEM{"\n"}WITH YOUR FAMILY!
+				</HomeText>
+				<HomeImg
+					alt="family"
+					perc="40"
+					src={fam}
+					style={{ marginLeft: "auto" }}
+				/>
+			</HomeDiv>
+			<InfoBar />
+			<HomeDiv>
+				<HomeImg alt="friends" perc="75" src={friends} />
+				<HomeText>
+					OR WITH SOME {"\n"}OF YOUR BEST FRIENDS! {"\n"}YOUR CHOICE!
+				</HomeText>
+			</HomeDiv>
+		</div>
+	);
+};
 
 export default Home;
-
-const about = `Hi everyone! Welcome to my movie store!!
-\n
-Ever since I can remember myself I had a true passion for film and cinema.
-I made this website so I can express my love for this incredible art form!
-\n
-Here you'll be able to find the newest movies
-fresh from the cinema but also the classics we all know and love.
-\n
-I really hope you enjoy it.
-\n
-Daniel
-`;

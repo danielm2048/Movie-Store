@@ -21,6 +21,8 @@ const Register = () => {
 		(actions) => actions.user.setAccessToken
 	);
 
+	const toastActions = useStoreActions((actions) => actions.toast);
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [username, setUsername] = useState("");
@@ -55,6 +57,14 @@ const Register = () => {
 		};
 	}, [ref]);
 
+	const toggleToast = () => {
+		toastActions.setMessage("Logged in successfully 👍");
+		toastActions.setVisible(true);
+		setTimeout(() => {
+			toastActions.setVisible(false);
+		}, 2700);
+	};
+
 	return (
 		<>
 			<NavItem right>
@@ -64,6 +74,7 @@ const Register = () => {
 					</NavLinkHover>
 				</StyledNavLink>
 			</NavItem>
+
 			<Modal modal={modal}>
 				<ModalContent
 					ref={ref}
@@ -89,6 +100,7 @@ const Register = () => {
 
 							if (res && res.data) {
 								setAccessToken(res.data.signupUser.accessToken);
+								toggleToast();
 							}
 						} catch (err) {
 							setError(err.graphQLErrors[0].message);

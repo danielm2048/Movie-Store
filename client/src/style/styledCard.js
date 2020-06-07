@@ -52,4 +52,5 @@ export const CardActions = styled.div`
 export const CardButton = styled.button`
 	display: flex;
 	margin: 0 0 0 auto;
+	align-items: center;
 `;

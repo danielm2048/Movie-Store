@@ -1,9 +1,12 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
+import ScrollToTop from "./Components/layout/ScrollToTop";
 
 import NavBar from "./Components/layout/NavBar";
 import Header from "./Components/layout/Header";
 import Home from "./Components/Home";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
 import MovieList from "./Components/movies/MovieList";
 import MoviePage from "./Components/movies/MoviePage";
 import Wishlist from "./Components/user/Wishlist";
@@ -17,6 +20,7 @@ import { GET_USER } from "./graphql/gqlDocs";
 import PageNotFound from "./Components/PageNotFound";
 import Checkout from "./Components/cart/Checkout";
 import ThankYou from "./Components/user/ThankYou";
+import { Toast } from "./style/styledToast";
 
 const PrivateRoute = ({ component: Component, role, ...rest }) => {
 	const { data, loading } = useQuery(GET_USER);
@@ -64,16 +68,20 @@ const ThankYouRoute = () => {
 const Routes = () => {
 	const sideNav = useStoreState((state) => state.layout.sideNav);
 	const setSideNav = useStoreActions((actions) => actions.layout.setSideNav);
+	const toast = useStoreState((state) => state.toast);
 
 	return (
-		<React.Fragment>
+		<>
 			<Main sideNav={sideNav}>
 				<Canvas sideNav={sideNav} onClick={() => setSideNav(false)} />
 				<NavBar />
 				<Header />
 				<Content>
+					<ScrollToTop />
 					<Switch>
 						<Route exact path="/" component={Home} />
+						<Route exact path="/about" component={About} />
+						<Route exact path="/contact" component={Contact} />
 						<Route exact path="/movies" component={MovieList} />
 						<Route exact path="/movie/:id" component={MoviePage} />
 						<PrivateRoute path="/wishlist" role="USER" component={Wishlist} />
@@ -86,11 +94,12 @@ const Routes = () => {
 						<ThankYouRoute />
 						<Route component={PageNotFound} />
 					</Switch>
+					<Toast visible={toast.visible}>{toast.message}</Toast>
 				</Content>
 				<Footer />
 			</Main>
 			<CartSideBar />
-		</React.Fragment>
+		</>
 	);
 };
 

@@ -23,7 +23,7 @@ const fadeout = keyframes`
 `;
 
 export const Toast = styled.div`
-	display: ${(props) => (props.clicked ? "block" : "none")};
+	display: ${(props) => (props.visible ? "block" : "none")};
 	min-width: 250px;
 	margin-left: -125px;
 	background-color: #333;

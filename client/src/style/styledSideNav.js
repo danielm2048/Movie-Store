@@ -6,7 +6,7 @@ export const SideNav = styled.div`
 	height: 100%;
 	width: ${(props) => (props.sideNav ? "350px" : 0)};
 	position: fixed;
-	z-index: 1;
+	z-index: 4;
 	top: 0;
 	left: 0;
 	background-color: white;
@@ -57,13 +57,14 @@ export const Remove = styled(Unwish)`
 
 export const SidePrice = styled.span`
 	display: flex;
-	margin: 0 0 0 auto;
+	margin: 0 auto;
 	font-size: 16px;
 `;
 
 export const SideQuantity = styled.input`
-	margin-left: "5px";
-	width: 50%;
+	margin: 5px auto;
+	width: 25%;
+	height: 35%;
 `;
 
 export const SideNavTrigger = styled.button`
