@@ -32,8 +32,7 @@ const Home = ({ history }) => {
 						<a href="https://www.freepik.com/free-photos-vectors/background">
 							photo created by freepik
 						</a>
-					</HeaderCredit>
-					<HeaderCredit>
+						<br />
 						<a href="https://www.freepik.com/free-photos-vectors/design">
 							Design vector created by pch.vector
 						</a>
