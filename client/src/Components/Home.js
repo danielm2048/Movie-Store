@@ -36,6 +36,10 @@ const Home = ({ history }) => {
 						<a href="https://www.freepik.com/free-photos-vectors/design">
 							Design vector created by pch.vector
 						</a>
+						<br />
+						<a href="https://my.logomakr.com/">
+							Created my free logo at LogoMakr.com
+						</a>
 					</HeaderCredit>
 				</ShopButtonContainer>
 				<Mouse />
