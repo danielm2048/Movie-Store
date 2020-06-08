@@ -9,7 +9,7 @@ const App = () => {
 	);
 
 	useEffect(() => {
-		fetch("http://192.168.1.164:4000/refresh_token", {
+		fetch("https://movie-affiliates.herokuapp.com/refresh_token", {
 			method: "POST",
 			credentials: "include",
 		}).then(async (x) => {
