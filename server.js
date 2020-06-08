@@ -45,7 +45,7 @@ const server = new ApolloServer({
 const app = express();
 app.use(
 	cors({
-		origin: "https://movie-affiliates.herokuapp.com",
+		origin: "http://192.168.1.164:3000",
 		credentials: true,
 	})
 );

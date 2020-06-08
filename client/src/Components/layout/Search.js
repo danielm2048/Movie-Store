@@ -10,11 +10,7 @@ import { useQuery } from "react-apollo";
 import { GET_MOVIES } from "../../graphql/gqlDocs";
 import { withRouter } from "react-router-dom";
 
-import createDOMPurify from "dompurify";
-import { JSDOM } from "jsdom";
-
-const window = new JSDOM("").window;
-const DOMPurify = createDOMPurify(window);
+import DOMPurify from "dompurify";
 
 const Search = ({ history }) => {
 	const { data, loading } = useQuery(GET_MOVIES);

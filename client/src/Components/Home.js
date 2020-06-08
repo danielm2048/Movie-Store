@@ -57,7 +57,7 @@ const Home = ({ history }) => {
 			</HomeDiv>
 			<InfoBar />
 			<HomeDiv>
-				<HomeImg alt="friends" perc="75" src={friends} />
+				<HomeImg alt="friends" perc="65" src={friends} />
 				<HomeText>
 					OR WITH SOME {"\n"}OF YOUR BEST FRIENDS! {"\n"}YOUR CHOICE!
 				</HomeText>

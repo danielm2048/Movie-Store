@@ -81,6 +81,9 @@ export const HeaderCredit = styled.div`
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	@media screen and (max-width: 768px) {
+		font-size: 8px;
+	}
 `;
 
 export const StyledFooter = styled.footer`
@@ -337,7 +340,7 @@ export const HomeDiv = styled.div`
 `;
 
 export const HomeText = styled.p`
-	font-size: 3vw;
+	font-size: 60px;
 	align-self: center;
 	font-weight: bold;
 	word-wrap: break-word;
@@ -346,6 +349,7 @@ export const HomeText = styled.p`
 	margin-left: ${(props) => props.marginLeftSize};
 	@media screen and (max-width: 768px) {
 		margin: 0 auto;
+		font-size: 20px;
 	}
 `;
 
@@ -354,5 +358,6 @@ export const HomeImg = styled.img`
 	height: auto;
 	@media screen and (max-width: 768px) {
 		margin: 0 auto;
+		max-width: 90%;
 	}
 `;
