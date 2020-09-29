@@ -1,7 +1,7 @@
 import React from "react";
 
-import fam from "../style/images/fam.jpg";
-import friends from "../style/images/friends.jpg";
+import fam from "../style/images/fam.png";
+import friends from "../style/images/friends.png";
 import {
 	HomeHeader,
 	ShopButtonContainer,
