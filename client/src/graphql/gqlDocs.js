@@ -228,12 +228,7 @@ export const WISH = gql`
 
 export const REVIEW_MOVIE = gql`
 	mutation ReviewMovie($movieId: String!, $text: String!, $rating: Int!) {
-		reviewMovie(
-			userId: $userId
-			movieId: $movieId
-			text: $text
-			rating: $rating
-		) {
+		reviewMovie(movieId: $movieId, text: $text, rating: $rating) {
 			id
 		}
 	}
