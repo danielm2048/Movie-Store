@@ -15,6 +15,17 @@ export const GET_USER = gql`
 				}
 				updatedAt
 			}
+			reviews {
+				id
+				movie {
+					id
+					name
+					cover
+				}
+				text
+				rating
+				updatedAt
+			}
 		}
 	}
 `;
@@ -34,6 +45,17 @@ export const LOGIN = gql`
 						name
 						genre
 					}
+					updatedAt
+				}
+				reviews {
+					id
+					movie {
+						id
+						name
+						cover
+					}
+					text
+					rating
 					updatedAt
 				}
 			}
@@ -58,6 +80,17 @@ export const REGISTER = gql`
 					}
 					updatedAt
 				}
+				reviews {
+					id
+					movie {
+						id
+						name
+						cover
+					}
+					text
+					rating
+					updatedAt
+				}
 			}
 		}
 	}
@@ -66,6 +99,18 @@ export const REGISTER = gql`
 export const LOGOUT = gql`
 	mutation Logout {
 		logoutUser
+	}
+`;
+
+export const FORGOT_PASSWORD = gql`
+	mutation ForgotPassword($email: String!) {
+		forgotPassword(email: $email)
+	}
+`;
+
+export const CHANGE_PASSWORD = gql`
+	mutation ChangePassword($token: String!, $password: String!) {
+		changePassword(token: $token, password: $password)
 	}
 `;
 
@@ -87,6 +132,28 @@ export const GET_MOVIE = gql`
 				stock
 			}
 			cover
+			reviews {
+				id
+				user {
+					id
+					username
+				}
+				text
+				rating
+				updatedAt
+			}
+			suggested {
+				id
+				name
+				cover
+				reviews {
+					id
+					rating
+				}
+				availableIn {
+					price
+				}
+			}
 		}
 	}
 `;
@@ -109,6 +176,15 @@ export const GET_MOVIES = gql`
 				stock
 			}
 			cover
+			reviews {
+				id
+				user {
+					id
+					username
+				}
+				text
+				rating
+			}
 		}
 	}
 `;
@@ -145,7 +221,26 @@ export const ADD_MOVIE = gql`
 `;
 
 export const WISH = gql`
-	mutation WishMovie($userId: String!, $movieId: String!, $active: Boolean!) {
-		wishMovie(userId: $userId, movieId: $movieId, active: $active)
+	mutation WishMovie($movieId: String!, $active: Boolean!) {
+		wishMovie(movieId: $movieId, active: $active)
+	}
+`;
+
+export const REVIEW_MOVIE = gql`
+	mutation ReviewMovie($movieId: String!, $text: String!, $rating: Int!) {
+		reviewMovie(
+			userId: $userId
+			movieId: $movieId
+			text: $text
+			rating: $rating
+		) {
+			id
+		}
+	}
+`;
+
+export const DELETE_REVIEW = gql`
+	mutation DeleteReview($reviewId: String!) {
+		deleteReview(reviewId: $reviewId)
 	}
 `;

@@ -88,12 +88,24 @@ const toastModel = {
 	}),
 };
 
+const reviewModalModel = {
+	modal: false,
+	movieId: null,
+	setModal: action((state, payload) => {
+		state.modal = payload;
+	}),
+	setMovieId: action((state, payload) => {
+		state.movieId = payload;
+	}),
+};
+
 const storeModel = {
 	cart: cartModel,
 	layout: layoutModel,
 	search: searchModel,
 	user: userModel,
 	toast: toastModel,
+	reviewModal: reviewModalModel,
 };
 
 const store = createStore(storeModel);

@@ -1,17 +1,14 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import homeHeader from "./images/homeH-min.jpg";
+import homeHeader from "./images/background1.jpg";
 
-import { ShippingFast, CreditCard } from "@styled-icons/fa-solid";
-import { OldPhone, PriceTag } from "@styled-icons/entypo";
 import { Link } from "react-router-dom";
 
 export const Main = styled.div`
 	display: block;
 	transition: margin-left 0.5s;
 	padding: 0.1px;
-	/* margin-left: ${(props) => (props.sideNav ? "350px" : 0)}; */
 	position: relative;
 	min-height: 100vh;
 `;
@@ -21,8 +18,6 @@ export const Canvas = styled.div`
 	width: ${(props) => (props.sideNav ? "100%" : 0)};
 	position: fixed;
 	z-index: 3;
-	/* top: 0;
-	left: 0; */
 	background-color: rgba(0, 0, 0, 0.9);
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -31,20 +26,27 @@ export const Canvas = styled.div`
 `;
 
 export const Content = styled.div`
-	padding-bottom: 20rem;
+	padding-bottom: 25rem;
 	font-family: "Raleway", sans-serif;
 	@media screen and (max-width: 768px) {
 		padding-bottom: auto;
 	}
 `;
 
-export const AboutText = styled.p`
+export const AboutText = styled.div`
+	font-family: "Gotu", sans-serif;
+	width: 400px;
 	font-size: 26px;
-	font-weight: 600;
+	font-weight: 500;
 	white-space: pre-line;
-	margin-left: 300px;
+	margin-left: 350px;
 	@media screen and (max-width: 768px) {
+		width: 200px;
+		font-size: 16px;
 		margin-left: 10px;
+	}
+	@media screen and (max-width: 1024px) {
+		margin-left: 50px;
 	}
 `;
 
@@ -87,41 +89,35 @@ export const HeaderCredit = styled.div`
 `;
 
 export const StyledFooter = styled.footer`
-	position: absolute;
+	position: relative;
 	height: auto;
-	/* left: 0;
-	right: 0; */
-	bottom: 0;
 	width: 100%;
 	padding: 10px;
 	font-family: "Dancing Script", cursive;
 	background-color: #48505e;
 	color: white;
-	/* text-align: center;
-	vertical-align: middle; */
 	line-height: 2rem;
-	/* @media screen and (max-width: 768px) {
-		height: auto;
-	} */
 `;
 
 export const FooterMenu = styled.nav`
 	display: flex;
 	justify-content: space-evenly;
-	/* width: 100%; */
 `;
 
 export const FooterMenuList = styled.ul`
-	/* text-align: center; */
 	margin: 0;
 	padding: 0;
 	@media screen and (max-width: 768px) {
-		margin: 0 0 2em 0;
+		margin: 0 2em 2em 0;
+	}
+
+	& > li {
+		display: ${(props) => (props.horizontal ? "inline-block" : "block")};
 	}
 `;
 
 export const FooterMenuItem = styled.li`
-	margin: 0 0 7px 0;
+	margin: 0 7px 7px 0;
 	padding: 0;
 	list-style: none;
 	font-size: 13px;
@@ -151,7 +147,6 @@ export const FooterMenuLink = styled(Link)`
 	}
 	&:hover {
 		text-decoration: none;
-		/* color: black; */
 	}
 	&:hover:after {
 		visibility: visible;
@@ -161,10 +156,12 @@ export const FooterMenuLink = styled(Link)`
 
 export const StyledPagination = styled.a`
 	color: ${(props) => (props.active === "true" ? "white" : "black")};
-	background-color: ${(props) => (props.active === "true" ? "dodgerblue" : "")};
+	background-color: ${(props) => (props.active === "true" ? "#d13c3a" : "")};
+	border-radius: 50%;
 	padding: 8px 16px;
 	font-size: 20px;
 	text-decoration: none;
+	text-align: center;
 	cursor: pointer;
 	transition: background-color 0.3s;
 	&:hover {
@@ -173,20 +170,30 @@ export const StyledPagination = styled.a`
 `;
 
 export const HomeHeader = styled.div`
-	position: relative;
+	position: absolute;
+	top: 0;
+	width: 100%;
 	display: flex;
-	/* border-radius: 0 0 85% 85% / 30%; */
-	height: 88.5vh;
+	height: 100vh;
 	background-image: url(${homeHeader});
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	justify-content: flex-end;
 	align-items: flex-start;
+
+	@media screen and (max-width: 768px) {
+		background-size: cover;
+		background-position-x: right;
+	}
 `;
 
 export const HomeTitle = styled.h1`
 	margin-top: 200px;
-	font-size: 4vw;
+	font-size: 3.5vw;
+
+	@media screen and (max-width: 768px) {
+		font-size: 8vw;
+	}
 `;
 
 export const ShopButtonContainer = styled.div`
@@ -194,7 +201,7 @@ export const ShopButtonContainer = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	margin-right: 100px;
+	margin-right: 50px;
 	@media screen and (max-width: 768px) {
 		margin-right: 0;
 		margin-left: 200px;
@@ -260,7 +267,7 @@ export const Mouse = () => (
 	</MouseDiv>
 );
 
-const VL = styled.div`
+export const VL = styled.div`
 	border-left: 2px solid grey;
 	height: 80px;
 	@media screen and (max-width: 768px) {
@@ -271,11 +278,11 @@ const VL = styled.div`
 	}
 `;
 
-const InfoBarContainer = styled.div`
+export const InfoBarContainer = styled.div`
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	background-color: #333;
+	background-color: #e6e6e6;
 	margin: 12rem 0;
 	@media screen and (max-width: 768px) {
 		flex-direction: column;
@@ -283,51 +290,13 @@ const InfoBarContainer = styled.div`
 	}
 `;
 
-const StyledInfoBarItem = styled.div`
+export const StyledInfoBarItem = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: white;
 	padding: 50px;
 `;
-
-const InfoBarItem = ({ icon, header, desc }) => (
-	<StyledInfoBarItem>
-		{icon}
-		<h3 style={{ fontWeight: "bold" }}>{header}</h3>
-		<br />
-		<p>{desc}</p>
-	</StyledInfoBarItem>
-);
-
-export const InfoBar = () => (
-	<InfoBarContainer>
-		<InfoBarItem
-			icon={<ShippingFast />}
-			header="Fast Shipping"
-			desc="Your order will be recieved in 3-7 business days!"
-		/>
-		<VL />
-		<InfoBarItem
-			icon={<OldPhone size="42" />}
-			header="Customer Service"
-			desc="Our great phone and online support is here for you 24/7 :)"
-		/>
-		<VL />
-		<InfoBarItem
-			icon={<PriceTag />}
-			header="Fair Prices"
-			desc="If you find a better price tell us and we'll match it."
-		/>
-		<VL />
-		<InfoBarItem
-			icon={<CreditCard />}
-			header="Secure Payment"
-			desc="Your purchases here are safe and secure!"
-		/>
-	</InfoBarContainer>
-);
 
 export const HomeDiv = styled.div`
 	display: flex;
@@ -345,7 +314,7 @@ export const HomeText = styled.p`
 	font-weight: bold;
 	word-wrap: break-word;
 	white-space: pre-wrap;
-	color: tomato;
+	color: #d13c3a;
 	margin-left: ${(props) => props.marginLeftSize};
 	@media screen and (max-width: 768px) {
 		margin: 0 auto;
@@ -354,10 +323,25 @@ export const HomeText = styled.p`
 `;
 
 export const HomeImg = styled.img`
+	display: block;
 	max-width: ${(props) => `${props.perc}%`};
 	height: auto;
 	@media screen and (max-width: 768px) {
 		margin: 0 auto;
-		max-width: 90%;
+		padding: 0;
+		max-width: calc(100vw - 30px);
+	}
+`;
+
+export const NotFoundText = styled.div`
+	position: absolute;
+	top: 150px;
+	right: 0;
+	left: 0;
+	@media screen and (max-width: 768px) {
+		position: relative;
+		top: 0px;
+		margin-bottom: 40px;
+		font-size: 18px;
 	}
 `;

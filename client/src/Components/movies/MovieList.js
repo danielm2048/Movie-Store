@@ -5,7 +5,7 @@ import Pagination from "../layout/Pagination";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_MOVIES } from "../../graphql/gqlDocs";
 import { useStoreState } from "easy-peasy";
-import { Select, Option } from "../../style/styledCard";
+import SelectDropDown from "../layout/SelectDropDown";
 
 const MovieList = () => {
 	const [genre, setGenre] = useState("All");
@@ -37,6 +37,7 @@ const MovieList = () => {
 		"Action",
 		"Adventure",
 		"Animation",
+		"Crime",
 		"Drama",
 		"Horror",
 		"Romance",
@@ -44,8 +45,8 @@ const MovieList = () => {
 		"Science Fiction",
 	];
 
-	const onSelectChange = (e) => {
-		setGenre(e.target.value);
+	const onSelectChange = (option) => {
+		setGenre(option);
 		setCurrentPage(1);
 	};
 
@@ -77,16 +78,11 @@ const MovieList = () => {
 
 	return (
 		<Container>
-			<Select
-				onChange={onSelectChange}
-				style={{ display: "flex", margin: "1rem auto", fontSize: 26 }}
-			>
-				{genres.map((g) => (
-					<Option key={g} value={g}>
-						{g}
-					</Option>
-				))}
-			</Select>
+			<SelectDropDown
+				options={genres}
+				selected={genre}
+				setSelected={onSelectChange}
+			/>
 			<List>
 				{currentMovies.map((movie) => (
 					<Item key={movie.id}>

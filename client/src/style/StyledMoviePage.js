@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 export const MoviePageContainer = styled.div`
 	max-width: 1200px;
-	margin: 0 auto;
+	margin: 35px auto;
 	border-radius: 5px;
 	background-color: #f2f2f2;
 	padding: 10px;
@@ -58,10 +58,11 @@ const slideRight = keyframes`
 `;
 
 export const MovieWarning = styled.div`
-	/* visibility: ${(props) => (props.isLow ? "visible" : "hidden")}; */
 	display: ${(props) => (props.isLow ? "block" : "none")};
 	width: 100%;
 	overflow: hidden;
 	animation: ${slideRight} 2s forwards;
-	transform:translateX(-100%);
+	transform: translateX(-100%);
 `;
+
+export const MovieReview = styled.div``;

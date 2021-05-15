@@ -28,9 +28,12 @@ const Mutation = require("./resolvers/Mutation");
 const resolvers = {
 	User: {
 		wishlist: UserResolver.getWished,
+		reviews: UserResolver.getReviewd,
 	},
 	Movie: {
 		wishers: MovieResolver.getWishers,
+		reviews: MovieResolver.getReviews,
+		suggested: MovieResolver.getSuggested,
 	},
 	Query,
 	Mutation,
@@ -109,6 +112,6 @@ const connection = mongoose.connection;
 connection.once("open", () => {
 	console.log("MongoDB database connection established successfully");
 	app.listen(port, () => {
-		console.log(`Now browse to port ${port}` + server.graphqlPath);
+		console.log(`🚀 Now browse to port ${port}` + server.graphqlPath);
 	});
 });

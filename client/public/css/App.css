@@ -5,7 +5,8 @@
 }
 
 html {
-	background-color: #f0f2f3;
+	/* background-color: #f0f2f3; */
+	background-color: #ffffff;
 }
 
 body {
@@ -118,4 +119,8 @@ hr {
 	100% {
 		transform: translate(24px, 0);
 	}
+}
+
+span[role="img"] {
+	font-size: x-large;
 }

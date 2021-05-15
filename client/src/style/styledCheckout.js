@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-	background-color: #f2f2f2;
 	padding: 5px 20px 15px 20px;
-	border: 1px solid lightgrey;
-	border-radius: 3px;
+	@media screen and (max-width: 768px) {
+		padding: 0;
+	}
 `;
 
 export const Row = styled.div`
@@ -21,6 +21,7 @@ export const Col = styled.div`
 	padding: 0 16px;
 	@media screen and (max-width: 800px) {
 		margin-bottom: ${(props) => (props.perc === "25%" ? "20px" : "")};
+		padding: 0;
 	}
 `;
 
@@ -45,7 +46,7 @@ export const IconContainer = styled.div`
 `;
 
 export const BuyButton = styled.button`
-	background-color: tomato;
+	background-color: #d13c3a;
 	color: white;
 	padding: 12px;
 	margin: 10px 0;
@@ -55,7 +56,7 @@ export const BuyButton = styled.button`
 	cursor: pointer;
 	font-size: 17px;
 	&:hover {
-		background-color: #cc4f38;
+		opacity: 0.9;
 	}
 `;
 

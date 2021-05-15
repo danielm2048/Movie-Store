@@ -1,6 +1,6 @@
 import React from "react";
 import { HeaderDiv, HeaderTitle, HeaderCredit } from "../../style/styledLayout";
-import { withRouter } from "react-router-dom";
+import { withRouter, matchPath } from "react-router-dom";
 
 import aboutHeader from "../../style/images/home.jpg";
 import catalogueHeader from "../../style/images/red-popcorn-2.png";
@@ -10,17 +10,24 @@ import checkoutHeader from "../../style/images/checkout.jpg";
 const Header = ({ history }) => {
 	let title = "";
 	let url = "";
+
+	const match = matchPath(history.location.pathname, {
+		path: "/change-password/:token",
+		exact: true,
+		strict: false,
+	});
+
 	switch (history.location.pathname) {
-		case "/":
-			title = "";
-			url = "";
-			break;
 		case "/about":
 			title = "About";
 			url = aboutHeader;
 			break;
 		case "/contact":
 			title = "Contact";
+			url = aboutHeader;
+			break;
+		case `/change-password/${match?.params.token}`:
+			title = "Change Password";
 			url = aboutHeader;
 			break;
 		case "/wishlist":
@@ -35,9 +42,13 @@ const Header = ({ history }) => {
 			title = "Admin Section";
 			url = aboutHeader;
 			break;
-		default:
+		case "/movies":
 			title = "Catalogue";
 			url = catalogueHeader;
+			break;
+		default:
+			title = "";
+			url = "";
 			break;
 	}
 

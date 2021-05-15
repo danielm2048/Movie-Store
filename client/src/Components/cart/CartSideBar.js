@@ -3,47 +3,42 @@ import {
 	SideNav,
 	SideItem,
 	SideLink,
-	Remove,
 	SidePrice,
-	SideQuantity,
 	SideNavTrigger,
 	Badge,
 	SideNavTitle,
 } from "../../style/styledSideNav";
 import { Close } from "../../style/styledModal";
-import { CartArrowDown, ShekelSign } from "@styled-icons/fa-solid";
+import { ShoppingBag } from "@styled-icons/evaicons-solid";
 import { useStoreState, useStoreActions } from "easy-peasy";
+import NumberInput from "./NumberInput";
 
 const CartItem = ({ id, name, format, price, quantity }) => {
 	const setQuantity = useStoreActions((actions) => actions.cart.addToCart);
 	const remove = useStoreActions((actions) => actions.cart.removeFromCart);
-	const onQuantityChange = (e) => {
+	const onQuantityChange = (newQuantity) => {
 		setQuantity({
 			movieId: id,
 			name,
 			format,
 			price,
-			quantity: parseInt(e.target.value),
+			quantity: newQuantity,
 		});
 	};
 	return (
 		<SideItem>
-			<div style={{ display: "flex", flexDirection: "column" }}>
-				<SideLink to={`/movie/${id}`}>{name}</SideLink>
-				<span style={{ marginLeft: "5px", fontSize: "12px" }}>{format}</span>
+			<div style={{ display: "flex", flexDirection: "column", width: "30%" }}>
+				<SideLink to={`/movie/${id}`} style={{ fontSize: 14 }}>
+					{name}
+				</SideLink>
+				<span style={{ marginLeft: 5 }}>{format}</span>
 			</div>
-			<SideQuantity
-				type="number"
-				id="quantity"
-				name="quantity"
-				min="1"
-				max="9"
-				onKeyDown={(e) => e.preventDefault()}
-				value={quantity}
-				onChange={onQuantityChange}
+			<NumberInput
+				quantity={quantity}
+				onQuantityChange={onQuantityChange}
+				remove={() => remove({ movieId: id, format })}
 			/>
-			<Remove onClick={() => remove({ movieId: id, format })}>&times;</Remove>
-			<SidePrice>{price * quantity}</SidePrice>
+			<SidePrice>{price * quantity}₪</SidePrice>
 		</SideItem>
 	);
 };
@@ -64,7 +59,7 @@ const CartSideBar = () => {
 		<>
 			<SideNavTrigger onClick={trigger} sideNav={sideNav}>
 				<Badge>{cart.count}</Badge>
-				<CartArrowDown size="20" />
+				<ShoppingBag size="24" />
 			</SideNavTrigger>
 			<SideNav sideNav={sideNav}>
 				<SideNavTitle>My Cart:</SideNavTitle>
@@ -72,37 +67,46 @@ const CartSideBar = () => {
 					&times;
 				</Close>
 				<hr />
-				{cart.cart.map((item) => (
-					<CartItem
-						key={item.movieId + item.format}
-						id={item.movieId}
-						name={item.name}
-						format={item.format}
-						price={item.price}
-						quantity={item.quantity}
-					/>
-				))}
-				<hr style={{ marginTop: "120%" }} />
-				<SidePrice style={{ margin: "auto", justifyContent: "center" }}>
-					<strong>
-						{cart.sumPrice}
-						<ShekelSign size="16" />
-					</strong>
-				</SidePrice>
-				<SideLink
-					to="/checkout"
-					style={{ textAlign: "center", margin: "5% 0" }}
-					onClick={trigger}
-				>
-					Go to Checkout
-				</SideLink>
-				<SideLink
-					to="#"
-					style={{ textAlign: "center" }}
-					onClick={() => removeFromCart("all")}
-				>
-					Remove All Items
-				</SideLink>
+				{cart.cart.length === 0 ? (
+					<span style={{ marginLeft: "25px", fontSize: "16px" }}>
+						Your cart is empty...
+					</span>
+				) : (
+					<>
+						<div style={{ height: 700, overflow: "auto" }}>
+							{cart.cart.map((item) => (
+								<CartItem
+									key={item.movieId + item.format}
+									id={item.movieId}
+									name={item.name}
+									format={item.format}
+									price={item.price}
+									quantity={item.quantity}
+								/>
+							))}
+						</div>
+						<div style={{ bottom: "calc(-100% + 900px)" }}>
+							<hr />
+							<SidePrice style={{ display: "flex", justifyContent: "center" }}>
+								<strong>{cart.sumPrice}₪</strong>
+							</SidePrice>
+							<SideLink
+								to="/checkout"
+								style={{ textAlign: "center", margin: "5% 0" }}
+								onClick={trigger}
+							>
+								Go to Checkout
+							</SideLink>
+							<SideLink
+								to="#"
+								style={{ textAlign: "center" }}
+								onClick={() => removeFromCart("all")}
+							>
+								Remove All Items
+							</SideLink>
+						</div>
+					</>
+				)}
 			</SideNav>
 		</>
 	);

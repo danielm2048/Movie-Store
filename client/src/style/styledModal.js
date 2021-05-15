@@ -24,7 +24,7 @@ const animatezoom = keyframes`
     }
 `;
 
-export const ModalContent = styled.form`
+export const ModalContent = styled.div`
 	background-color: #fefefe;
 	margin: 5% auto 15% auto;
 	border: 1px solid #888;
@@ -44,7 +44,6 @@ export const ModalImgContainer = styled.div`
 
 export const ModalImg = styled.img`
 	width: 30%;
-	border-radius: 50%;
 `;
 
 export const Close = styled.span`
@@ -66,7 +65,7 @@ export const ModalActions = styled.div`
 `;
 
 export const ModalButton = styled.button`
-	background-color: tomato;
+	background-color: #d13c3a;
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
@@ -74,6 +73,7 @@ export const ModalButton = styled.button`
 	border-radius: 5px;
 	cursor: pointer;
 	width: 100%;
+	font-size: 16px;
 	&:hover {
 		opacity: 0.8;
 	}
@@ -118,7 +118,7 @@ export const AdminButton = styled.button`
 	width: 50%;
 	border: none;
 	border-radius: 10px;
-	background-color: tomato;
+	background-color: #d13c3a;
 	color: white;
 	padding: 14px 28px;
 	margin: 5px auto;
@@ -128,4 +128,15 @@ export const AdminButton = styled.button`
 	&:hover {
 		background-color: #cc4f38;
 	}
+`;
+
+export const TextButton = styled.button`
+	width: 100%;
+	margin: 0 auto 20px auto;
+	background: none;
+	border: none;
+	padding: 0;
+	outline: none;
+	color: #069;
+	cursor: pointer;
 `;

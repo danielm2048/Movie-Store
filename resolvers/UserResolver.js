@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Movie = require("../models/movies.model");
 const Wishlist = require("../models/wishlist.model");
+const Review = require("../models/reviews.model");
 
 const getWished = async (parent) => {
 	const list = await Wishlist.find({ userId: parent.id, active: true });
@@ -17,11 +18,35 @@ const getWished = async (parent) => {
 	return movies.map((item) => {
 		return {
 			movie: item,
-			updatedAt: dates[item._id].toISOString().slice(0, 10),
+			updatedAt: dates[item._id].toDateString(),
+		};
+	});
+};
+
+const getReviewd = async (parent) => {
+	const reviews = await Review.find({ userId: parent.id });
+	let reviewData = {};
+	const movies = await Movie.find({
+		_id: {
+			$in: reviews.map((review) => {
+				reviewData[review.movieId] = review;
+				return mongoose.Types.ObjectId(review.movieId);
+			}),
+		},
+	});
+
+	return movies.map((movie) => {
+		return {
+			id: reviewData[movie._id]._id,
+			movie,
+			text: reviewData[movie._id].text,
+			rating: reviewData[movie._id].rating,
+			updatedAt: reviewData[movie._id].updatedAt.toDateString(),
 		};
 	});
 };
 
 module.exports = {
 	getWished,
+	getReviewd,
 };

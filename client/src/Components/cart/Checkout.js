@@ -9,20 +9,14 @@ import {
 	BuyButton,
 	Price,
 } from "../../style/styledCheckout";
-import {
-	User,
-	Envelope,
-	AddressCard,
-	Building,
-	ShoppingCart,
-	ShekelSign,
-} from "@styled-icons/fa-solid";
+import { ShekelSign } from "@styled-icons/fa-solid";
 import {
 	CcVisa,
 	CcMastercard,
 	CcDinersClub,
 	CcPaypal,
 } from "@styled-icons/fa-brands";
+import { Person, Compass, Home, Email, ShoppingCart } from "@styled-icons/evaicons-solid";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { Link } from "react-router-dom";
 
@@ -56,7 +50,7 @@ const Checkout = ({ history }) => {
 							<Col perc="50%">
 								<h3>Billing Address</h3>
 								<Label htmlFor="fname">
-									<User size="16" /> Full Name
+									<Person size="20" /> Full Name
 								</Label>
 								<Field
 									type="text"
@@ -67,7 +61,7 @@ const Checkout = ({ history }) => {
 								></Field>
 
 								<Label htmlFor="email">
-									<Envelope size="16" /> Email
+									<Email size="20" /> Email
 								</Label>
 								<Field
 									type="email"
@@ -78,7 +72,7 @@ const Checkout = ({ history }) => {
 								></Field>
 
 								<Label htmlFor="adr">
-									<AddressCard size="16" /> Address
+									<Compass size="20" /> Address
 								</Label>
 								<Field
 									type="text"
@@ -89,7 +83,7 @@ const Checkout = ({ history }) => {
 								></Field>
 
 								<Label htmlFor="city">
-									<Building size="16" /> City
+									<Home size="20" /> City
 								</Label>
 								<Field
 									type="text"

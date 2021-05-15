@@ -1,12 +1,34 @@
 import React from "react";
-import { AboutText } from "../style/styledLayout";
+import { AboutText, HomeImg } from "../style/styledLayout";
 
-const About = () => <AboutText>{about}</AboutText>;
+import movie from "../style/images/movie.gif";
+
+const About = () => {
+	return (
+		<div style={{ display: "flex" }}>
+			<AboutText>
+				<h1>Hi everyone! Welcome to my movie store!!</h1>
+				<p>{about}</p>
+			</AboutText>
+
+			<HomeImg
+				alt="popcorn gif"
+				perc={30}
+				src={movie}
+				style={{
+					position: "sticky",
+					top: 150,
+					margin: "0 auto",
+					height: "50%",
+				}}
+			/>
+		</div>
+	);
+};
 
 export default About;
 
-const about = `Hi everyone! Welcome to my movie store!!
-\n
+const about = `
 Ever since I can remember myself I had a true passion for film and cinema.
 I made this website so I can express my love for this incredible art form!
 \n

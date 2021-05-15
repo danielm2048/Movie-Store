@@ -10,13 +10,13 @@ import {
 import { useQuery } from "react-apollo";
 import { GET_USER } from "../graphql/gqlDocs";
 import { useStoreActions } from "easy-peasy";
+import { HomeImg } from "../style/styledLayout";
+import contactPic from "../style/images/contact.png";
 
 const Contact = () => {
 	const { data, loading } = useQuery(GET_USER);
 
-	// eslint-disable-next-line
 	const [name, setName] = useState("");
-	// eslint-disable-next-line
 	const [email, setEmail] = useState("");
 	const [mess, setMess] = useState("");
 
@@ -59,6 +59,7 @@ const Contact = () => {
 				type="text"
 				id="name"
 				name="name"
+				value={name}
 				onChange={(e) => setName(e.target.value)}
 				placeholder="Enter your name:"
 				required
@@ -68,6 +69,7 @@ const Contact = () => {
 				type="text"
 				id="email"
 				name="email"
+				value={email}
 				onChange={(e) => setEmail(e.target.value)}
 				placeholder="Enter your email:"
 				required
@@ -79,7 +81,16 @@ const Contact = () => {
 		<Row>
 			<Col style={{ display: "flex", margin: "0 auto" }}>
 				<Box>
-					<h2>Tell us anything! We would love to hear from you:</h2>
+					<h2 style={{ textAlign: "center" }}>
+						Tell us anything! We would love to hear from you:
+					</h2>
+
+					<HomeImg
+						alt="contact illustration"
+						perc={100}
+						src={contactPic}
+						style={{ height: 450 }}
+					/>
 					<br />
 					<form onSubmit={onContact}>
 						{!data.getUser ? guestFields : null}

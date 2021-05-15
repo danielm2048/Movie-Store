@@ -8,6 +8,7 @@ export const Container = styled.div`
 export const List = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	list-style: none;
 	margin: 0;
 	padding: 0;

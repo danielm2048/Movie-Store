@@ -1,31 +1,32 @@
-import React from "react";
-import { List } from "@styled-icons/fa-solid";
+import React, { useEffect, useState } from "react";
+import { withRouter, NavLink } from "react-router-dom";
+import { HeartIcon } from "../../style/styledIcons";
 import {
 	Nav,
 	NavItem,
 	StyledNavLink,
-	NavLinkHover,
 	NavContainer,
+	BurgerMenu,
 } from "../../style/styledNavbar";
 import logo from "../../style/images/newLogo.png";
-import Login from "../auth/Login";
-import Register from "../auth/Register";
+import AuthModal from "../auth/AuthModal";
 import Logout from "../auth/Logout";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_USER } from "../../graphql/gqlDocs";
 import Search from "./Search";
 
-const NavBar = () => {
+const NavBar = ({ history }) => {
 	const { data, loading } = useQuery(GET_USER);
+
+	const [scroll, setScroll] = useState(false);
+	const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
 	const authLinks = (
 		<>
 			<Logout />
 			<NavItem right>
-				<StyledNavLink to="/wishlist">
-					<NavLinkHover>
-						<List size="16" title="My Wishlist" />
-					</NavLinkHover>
+				<StyledNavLink to="/wishlist" $icon>
+					<HeartIcon size="24" title="My Wishlist" />
 				</StyledNavLink>
 			</NavItem>
 		</>
@@ -33,51 +34,63 @@ const NavBar = () => {
 
 	const adminLinks = (
 		<>
-			<NavItem>
-				<StyledNavLink to="/admin-section">
-					<NavLinkHover>Admin Section</NavLinkHover>
-				</StyledNavLink>
+			<NavItem right>
+				<StyledNavLink to="/admin-section">Admin Section</StyledNavLink>
 			</NavItem>
 		</>
 	);
 
-	const guestLinks = (
-		<>
-			<Login />
-			<Register />
-		</>
-	);
+	const guestLinks = <AuthModal />;
+
+	const handleScroll = () => {
+		if (window.scrollY < 75) {
+			setScroll(false);
+		} else {
+			setScroll(true);
+		}
+	};
+
+	useEffect(() => {
+		if (history.location.pathname === "/") {
+			if (window.scrollY === 0) {
+				setScroll(false);
+			}
+			window.addEventListener("scroll", handleScroll);
+			return () => {
+				window.removeEventListener("scroll", handleScroll);
+			};
+		} else {
+			setScroll(true);
+		}
+	}, [scroll, history.location.pathname]);
 
 	return (
-		<NavContainer>
-			<Nav>
+		<NavContainer scroll={scroll} burgerMenuOpen={burgerMenuOpen}>
+			<Nav burgerMenuOpen={burgerMenuOpen}>
 				<NavItem>
-					<StyledNavLink to="/" style={{ padding: "18px 25px" }}>
+					<NavLink to="/" style={{ padding: "18px 25px" }}>
 						<img src={logo} alt="logo" style={{ height: 65, width: 220 }}></img>
-					</StyledNavLink>
+					</NavLink>
 				</NavItem>
 				{data && data.getUser && !loading
 					? data.getUser.admin
 						? adminLinks
 						: null
 					: null}
-				<NavItem>
-					<StyledNavLink to="/about">
-						<NavLinkHover>About</NavLinkHover>
-					</StyledNavLink>
+				{data && data.getUser && !loading ? authLinks : guestLinks}
+				<NavItem right>
+					<StyledNavLink to="/about">About</StyledNavLink>
 				</NavItem>
-				<NavItem>
-					<StyledNavLink to="/movies">
-						<NavLinkHover>Catalogue</NavLinkHover>
-					</StyledNavLink>
+				<NavItem right>
+					<StyledNavLink to="/movies">Catalogue</StyledNavLink>
 				</NavItem>
-				<NavItem>
+				<NavItem style={{ padding: 0 }}>
 					<Search />
 				</NavItem>
-				{data && data.getUser && !loading ? authLinks : guestLinks}
+				<BurgerMenu onClick={() => setBurgerMenuOpen(!burgerMenuOpen)} />
 			</Nav>
 		</NavContainer>
 	);
 };
 
-export default NavBar;
+export default withRouter(NavBar);

@@ -29,7 +29,6 @@ const Heart = ({ movieId }) => {
 		if (dataUser && dataUser.getUser) {
 			await wish({
 				variables: {
-					userId: dataUser.getUser.id,
 					movieId: movieId,
 					active: !check,
 				},

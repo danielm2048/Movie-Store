@@ -1,6 +1,6 @@
 import React from "react";
 
-import fam from "../style/images/fam.png";
+import tv from "../style/images/tv.png";
 import friends from "../style/images/friends.png";
 import {
 	HomeHeader,
@@ -8,12 +8,12 @@ import {
 	ShopButton,
 	Mouse,
 	HomeTitle,
-	InfoBar,
 	HomeText,
 	HomeImg,
 	HomeDiv,
 	HeaderCredit,
 } from "../style/styledLayout";
+import InfoBar from "./layout/InfoBar";
 
 const Home = ({ history }) => {
 	return (
@@ -44,22 +44,22 @@ const Home = ({ history }) => {
 				</ShopButtonContainer>
 				<Mouse />
 			</HomeHeader>
-			<HomeDiv>
-				<HomeText marginLeftSize="5em">
-					BUY SOME MOVIES{"\n"}AND ENJOY THEM{"\n"}WITH YOUR FAMILY!
+			<HomeDiv style={{ marginTop: "100vh" }}>
+				<HomeText marginLeftSize="3em">
+					BUY SOME MOVIES{"\n"}AND ENJOY THEM{"\n"}RIGHT AT HOME!
 				</HomeText>
 				<HomeImg
-					alt="family"
-					perc="40"
-					src={fam}
+					alt="girl watching tv"
+					perc={55}
+					src={tv}
 					style={{ marginLeft: "auto" }}
 				/>
 			</HomeDiv>
 			<InfoBar />
 			<HomeDiv>
-				<HomeImg alt="friends" perc="65" src={friends} />
+				<HomeImg alt="friends" perc={65} src={friends} />
 				<HomeText>
-					OR WITH SOME {"\n"}OF YOUR BEST FRIENDS! {"\n"}YOUR CHOICE!
+					EVEN WITH SOME {"\n"}OF YOUR BEST FRIENDS! {"\n"}YOUR CHOICE!
 				</HomeText>
 			</HomeDiv>
 		</div>

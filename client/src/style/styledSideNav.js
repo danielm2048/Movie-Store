@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Unwish } from "./styledWishlist";
 
 export const SideNav = styled.div`
 	height: 100%;
-	width: ${(props) => (props.sideNav ? "350px" : 0)};
+	width: ${(props) => (props.sideNav ? "420px" : 0)};
 	position: fixed;
 	z-index: 4;
 	top: 0;
@@ -12,8 +11,11 @@ export const SideNav = styled.div`
 	background-color: white;
 	font-family: "Gotu", sans-serif;
 	overflow-x: hidden;
-	transition: 0.5s;
+	transition: 0.2s;
 	padding-top: 60px;
+	@media screen and (max-width: 768px) {
+		width: ${(props) => (props.sideNav ? "300px" : 0)};
+	}
 	@media screen and (max-height: 450px) {
 		padding-top: 15px;
 	}
@@ -31,7 +33,10 @@ export const SideNavTitle = styled.h4`
 export const SideItem = styled.div`
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
 	padding: 8px 8px 8px 32px;
+	margin-bottom: 25px;
 	@media screen and (max-height: 450px) {
 		padding-top: 18px;
 	}
@@ -41,36 +46,41 @@ export const SideLink = styled(Link)`
 	display: block;
 	text-decoration: none;
 	font-size: 14px;
-	/* width: 25%; */
 	color: #2196f3;
-	transition: 0.3s;
+	transition: 0.2s;
 	&:hover {
 		color: #7bbcf1;
 	}
 `;
 
-export const Remove = styled(Unwish)`
-	display: flex;
-	margin: 0 0 0 auto;
-	font-size: 16px;
+export const QuantityButton = styled.button`
+	background-color: white;
+	border: 1px solid #e0e0e0;
+	text-align: center;
+	display: inline-block;
+	font-size: 22px;
+	cursor: pointer;
+	outline: none;
 `;
 
 export const SidePrice = styled.span`
-	display: flex;
-	margin: 0 auto;
 	font-size: 16px;
 `;
 
 export const SideQuantity = styled.input`
-	margin: 5px auto;
-	width: 25%;
-	height: 35%;
+	width: 60%;
+	text-align: center;
+	font-size: 16px;
+	border: 1px solid #e0e0e0;
+	border-left: none;
+	border-right: none;
+	outline: none;
 `;
 
 export const SideNavTrigger = styled.button`
 	position: fixed;
-	margin-left: ${(props) => (props.sideNav ? "350px" : 0)};
-	transition: 0.5s;
+	margin-left: ${(props) => (props.sideNav ? "420px" : 0)};
+	transition: 0.2s;
 	bottom: 20px;
 	left: 30px;
 	z-index: 99;
@@ -86,6 +96,9 @@ export const SideNavTrigger = styled.button`
 	&:hover {
 		background-color: #555;
 	}
+	@media screen and (max-width: 768px) {
+		margin-left: ${(props) => (props.sideNav ? "300px" : 0)};
+	}
 `;
 
 export const Badge = styled.span`
@@ -94,7 +107,7 @@ export const Badge = styled.span`
 	right: -10px;
 	padding: 4px 8px;
 	border-radius: 50%;
-	background: tomato;
+	background: #d13c3a;
 	color: white;
 	font-size: 14px;
 `;

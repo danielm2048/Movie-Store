@@ -1,6 +1,6 @@
 import React from "react";
-import { NavItem, StyledNavLink, NavLinkHover } from "../../style/styledNavbar";
-import { SignOutAlt } from "@styled-icons/fa-solid";
+import { NavItem, StyledNavLink } from "../../style/styledNavbar";
+import { LogOutOutline } from "@styled-icons/evaicons-outline";
 import { useMutation } from "@apollo/react-hooks";
 import { LOGOUT } from "../../graphql/gqlDocs";
 import { useStoreActions } from "easy-peasy";
@@ -20,11 +20,9 @@ const Logout = () => {
 					setAccessToken("");
 					await client.resetStore();
 				}}
-				to="/"
+				to="/" $icon
 			>
-				<NavLinkHover>
-					<SignOutAlt size="16" title="Logout" />
-				</NavLinkHover>
+				<LogOutOutline size="24" title="Logout" />
 			</StyledNavLink>
 		</NavItem>
 	);

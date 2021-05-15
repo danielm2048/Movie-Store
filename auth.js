@@ -1,12 +1,14 @@
 const jwt = require("jsonwebtoken");
 const { REFRESH_SECRET, ACCESS_SECRET } = require("./constants");
 
+const User = require("./models/users.model");
+
 const createAccessToken = (user) => {
 	const accessToken = jwt.sign(
 		{ userId: user.id, role: user.admin ? "ADMIN" : "USER" },
 		ACCESS_SECRET,
 		{
-			expiresIn: "10min",
+			expiresIn: "5min",
 		}
 	);
 
@@ -30,7 +32,7 @@ const sendRefreshToken = (res, token) => {
 		expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
 		httpOnly: true,
 		path: "/refresh_token",
-		// secure: true
+		secure: true,
 	});
 };
 

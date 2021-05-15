@@ -20,7 +20,9 @@ const typeDefs = gql`
 			availableIn: [AvailableInInput!]!
 			cover: String!
 		): Movie!
-		wishMovie(userId: String!, movieId: String!, active: Boolean!): Boolean!
+		wishMovie(movieId: String!, active: Boolean!): Boolean!
+		reviewMovie(movieId: String!, text: String!, rating: Int!): Review!
+		deleteReview(reviewId: String!): Boolean!
 		signupUser(
 			username: String!
 			email: String!
@@ -28,7 +30,8 @@ const typeDefs = gql`
 		): AuthPayLoad
 		loginUser(email: String!, password: String!): AuthPayLoad
 		logoutUser: Boolean!
-		invalidateTokens: Boolean!
+		forgotPassword(email: String!): Boolean!
+		changePassword(token: String!, password: String!): Boolean!
 	}
 
 	type AvailableIn {
@@ -52,6 +55,15 @@ const typeDefs = gql`
 		updatedAt: String!
 	}
 
+	type Review {
+		id: ID!
+		user: User!
+		movie: Movie!
+		text: String!
+		rating: Int!
+		updatedAt: String!
+	}
+
 	type AuthPayLoad {
 		accessToken: String
 		user: User
@@ -64,6 +76,7 @@ const typeDefs = gql`
 		password: String!
 		admin: Boolean!
 		wishlist: [Wish!]
+		reviews: [Review!]
 	}
 
 	type Movie {
@@ -79,6 +92,8 @@ const typeDefs = gql`
 		availableIn: [AvailableIn!]!
 		cover: String!
 		wishers: [User!]
+		reviews: [Review!]
+		suggested: [Movie!]
 	}
 `;
 

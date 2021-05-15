@@ -21,11 +21,19 @@ import PageNotFound from "./Components/PageNotFound";
 import Checkout from "./Components/cart/Checkout";
 import ThankYou from "./Components/user/ThankYou";
 import { Toast } from "./style/styledToast";
+import ReviewModal from "./Components/movies/ReviewModal";
+import ChangePassword from "./Components/auth/ChangePassword";
 
 const PrivateRoute = ({ component: Component, role, ...rest }) => {
 	const { data, loading } = useQuery(GET_USER);
 
-	if (loading) return <div>Loading...</div>;
+	if (loading)
+		return (
+			<div className="lds-ripple">
+				<div></div>
+				<div></div>
+			</div>
+		);
 
 	const userType =
 		data && data.getUser && !loading
@@ -48,12 +56,12 @@ const PrivateRoute = ({ component: Component, role, ...rest }) => {
 	);
 };
 
-const ThankYouRoute = () => {
+const ThankYouRoute = ({ ...rest }) => {
 	const auth = useStoreState((state) => state.cart.thankYou);
 
 	return (
 		<Route
-			path="/thank-you"
+			{...rest}
 			render={(props) =>
 				auth ? (
 					<ThankYou />
@@ -81,9 +89,9 @@ const Routes = () => {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route exact path="/about" component={About} />
-						<Route exact path="/contact" component={Contact} />
-						<Route exact path="/movies" component={MovieList} />
-						<Route exact path="/movie/:id" component={MoviePage} />
+						<Route path="/contact" component={Contact} />
+						<Route path="/movies" component={MovieList} />
+						<Route path="/movie/:id" component={MoviePage} />
 						<PrivateRoute path="/wishlist" role="USER" component={Wishlist} />
 						<PrivateRoute
 							path="/admin-section"
@@ -91,9 +99,12 @@ const Routes = () => {
 							component={AddMovie}
 						/>
 						<Route path="/checkout" component={Checkout} />
-						<ThankYouRoute />
-						<Route component={PageNotFound} />
+						<ThankYouRoute exact path="/thank-you" />
+						<Route path="/change-password/:token" component={ChangePassword} />
+						<Route path="/404" component={PageNotFound} />
+						<Redirect to="/404" />
 					</Switch>
+					<ReviewModal />
 					<Toast visible={toast.visible}>{toast.message}</Toast>
 				</Content>
 				<Footer />

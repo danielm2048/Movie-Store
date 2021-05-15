@@ -1,30 +1,34 @@
 {
   "files": {
     "main.css": "/static/css/main.3a0208f5.chunk.css",
-    "main.js": "/static/js/main.003085e4.chunk.js",
-    "main.js.map": "/static/js/main.003085e4.chunk.js.map",
+    "main.js": "/static/js/main.552109d4.chunk.js",
+    "main.js.map": "/static/js/main.552109d4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.4050f94e.js",
     "runtime-main.js.map": "/static/js/runtime-main.4050f94e.js.map",
-    "static/js/2.26201dc6.chunk.js": "/static/js/2.26201dc6.chunk.js",
-    "static/js/2.26201dc6.chunk.js.map": "/static/js/2.26201dc6.chunk.js.map",
+    "static/js/2.84d437d1.chunk.js": "/static/js/2.84d437d1.chunk.js",
+    "static/js/2.84d437d1.chunk.js.map": "/static/js/2.84d437d1.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.bf5b8f1321b97c4270a3eb23c2d11007.js": "/precache-manifest.bf5b8f1321b97c4270a3eb23c2d11007.js",
+    "precache-manifest.759d6e42c3a7a44de7865e7e12d6e84a.js": "/precache-manifest.759d6e42c3a7a44de7865e7e12d6e84a.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.3a0208f5.chunk.css.map": "/static/css/main.3a0208f5.chunk.css.map",
-    "static/js/2.26201dc6.chunk.js.LICENSE.txt": "/static/js/2.26201dc6.chunk.js.LICENSE.txt",
+    "static/js/2.84d437d1.chunk.js.LICENSE.txt": "/static/js/2.84d437d1.chunk.js.LICENSE.txt",
+    "static/media/404.jpg": "/static/media/404.38dc8906.jpg",
+    "static/media/background1.jpg": "/static/media/background1.96cd3169.jpg",
     "static/media/checkout.jpg": "/static/media/checkout.ddac56c4.jpg",
-    "static/media/fam.png": "/static/media/fam.88e625a9.png",
+    "static/media/contact.png": "/static/media/contact.f0480ad8.png",
     "static/media/friends.png": "/static/media/friends.e0ee4805.png",
     "static/media/home.jpg": "/static/media/home.524b1e1d.jpg",
-    "static/media/homeH-min.jpg": "/static/media/homeH-min.58b7648e.jpg",
+    "static/media/movie.gif": "/static/media/movie.9bd9d91a.gif",
     "static/media/newLogo.png": "/static/media/newLogo.470f3d66.png",
+    "static/media/rating-pic.png": "/static/media/rating-pic.26045596.png",
     "static/media/red-popcorn-2.png": "/static/media/red-popcorn-2.3719f66b.png",
-    "static/media/rickmorty.jpg": "/static/media/rickmorty.1957fb88.jpg"
+    "static/media/rickmorty.jpg": "/static/media/rickmorty.1957fb88.jpg",
+    "static/media/tv.png": "/static/media/tv.5203b228.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4050f94e.js",
-    "static/js/2.26201dc6.chunk.js",
+    "static/js/2.84d437d1.chunk.js",
     "static/css/main.3a0208f5.chunk.css",
-    "static/js/main.003085e4.chunk.js"
+    "static/js/main.552109d4.chunk.js"
   ]
 }

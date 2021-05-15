@@ -1,35 +1,43 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f62df1e91052fab9a93a4aef1ac7b49e",
+    "revision": "4b57271b2ed41f8ff4cc2336efc75faf",
     "url": "/index.html"
   },
   {
-    "revision": "8a1c4101e289a3430fdd",
+    "revision": "54cc59fc050c24eaeae4",
     "url": "/static/css/main.3a0208f5.chunk.css"
   },
   {
-    "revision": "0889b0812aeaa8d57e6f",
-    "url": "/static/js/2.26201dc6.chunk.js"
+    "revision": "1b3103ef2dd531ba1a3e",
+    "url": "/static/js/2.84d437d1.chunk.js"
   },
   {
     "revision": "102cd3751951467b08a4a00186cddd7b",
-    "url": "/static/js/2.26201dc6.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.84d437d1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8a1c4101e289a3430fdd",
-    "url": "/static/js/main.003085e4.chunk.js"
+    "revision": "54cc59fc050c24eaeae4",
+    "url": "/static/js/main.552109d4.chunk.js"
   },
   {
     "revision": "aec1770a453924c82bd5",
     "url": "/static/js/runtime-main.4050f94e.js"
   },
   {
+    "revision": "38dc8906271b97a8d6111fe961638085",
+    "url": "/static/media/404.38dc8906.jpg"
+  },
+  {
+    "revision": "96cd3169943f98194ff9af6f207b3960",
+    "url": "/static/media/background1.96cd3169.jpg"
+  },
+  {
     "revision": "ddac56c48117211891e577a56bc45438",
     "url": "/static/media/checkout.ddac56c4.jpg"
   },
   {
-    "revision": "88e625a919dc4025bab39a12f8326bda",
-    "url": "/static/media/fam.88e625a9.png"
+    "revision": "f0480ad8a37ee35630ffff826e63c205",
+    "url": "/static/media/contact.f0480ad8.png"
   },
   {
     "revision": "e0ee480516eac50d02fc681b806f8522",
@@ -40,12 +48,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/home.524b1e1d.jpg"
   },
   {
-    "revision": "58b7648ecb54b96c3ddd175277014cd0",
-    "url": "/static/media/homeH-min.58b7648e.jpg"
+    "revision": "9bd9d91a5d7c9d0d0f821816ef2d5a1f",
+    "url": "/static/media/movie.9bd9d91a.gif"
   },
   {
     "revision": "470f3d66fa4ca7c47341dcf63b02a0c1",
     "url": "/static/media/newLogo.470f3d66.png"
+  },
+  {
+    "revision": "26045596d334ba1cdbba9449fb4da8db",
+    "url": "/static/media/rating-pic.26045596.png"
   },
   {
     "revision": "3719f66b2aeb8206476d55a0b58d18a7",
@@ -54,5 +66,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1957fb888e541dc1f060b937a028a228",
     "url": "/static/media/rickmorty.1957fb88.jpg"
+  },
+  {
+    "revision": "5203b22831d3c095d6db3b4d97f7fb17",
+    "url": "/static/media/tv.5203b228.png"
   }
 ]);

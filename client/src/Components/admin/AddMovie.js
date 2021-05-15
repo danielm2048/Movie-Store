@@ -15,6 +15,7 @@ import {
 	ModalTextArea,
 } from "../../style/styledModal";
 import { Row, Col } from "../../style/styledCheckout";
+import logo from "../../style/images/newLogo.png";
 
 const AddMovie = () => {
 	const initialState = {
@@ -91,7 +92,7 @@ const AddMovie = () => {
 						<Close onClick={toggle} title="Close">
 							&times;
 						</Close>
-						<ModalImg src="/images/popcorn.png" alt="popcorn" />
+						<ModalImg src={logo} alt="logo" />
 					</ModalImgContainer>
 					<ModalActions>
 						{error ? (
